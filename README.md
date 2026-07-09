@@ -13,4 +13,6 @@ uv sync
 python main.py
 ```
 
+
+
 - Enter details that it asks and the pdf will bw saved in current directory inside the directory names `pdfs`
