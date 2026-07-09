@@ -31,9 +31,3 @@ class SearchAgent:
                 
         return results
     
-    
-
-# x = SearchAgent()
-# data = x.search("best places in kedarnath")
-# ans = x.extract_data(data)
-# print(ans)
