@@ -23,8 +23,3 @@ class MapsAgent:
             "name" : name,
             "address": address,   
         }
-
-# x = MapsAgent()
-# data = x.search("jog falls")
-# ans = x.extract_data(data)
-# print(ans)

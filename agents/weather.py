@@ -40,7 +40,3 @@ class WeatherAgent:
         
         
         
-# weather = WeatherAgent()
-# data = weather.search(11.42355, 76.684494)
-# ans = weather.extract_data(data, '2026-07-10')
-# print(ans)
