@@ -10,4 +10,3 @@ llm = ChatGoogleGenerativeAI(
 )
 response = llm.invoke("You are the travel agent for making plan for trip and tell me some best places near tha shorapur in karnataka for 2 days!")
 print(response.content)
-print(" ")
