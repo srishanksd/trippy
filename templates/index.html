@@ -1,249 +1,157 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>Trippy AI</title>
-
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
-
-<style>
-
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
-font-family:'Poppins',sans-serif;
-}
-
-body{
-
-height:100vh;
-
-display:flex;
-justify-content:center;
-align-items:center;
-
-background:linear-gradient(135deg,#0f172a,#020617);
-
-overflow:hidden;
-
-}
-
-body::before{
-
-content:"";
-
-position:absolute;
-
-width:600px;
-height:600px;
-
-background:#4f46e5;
-
-filter:blur(180px);
-
-border-radius:50%;
-
-top:-180px;
-left:-180px;
-
-opacity:.55;
-
-}
-
-body::after{
-
-content:"";
-
-position:absolute;
-
-width:500px;
-height:500px;
-
-background:#06b6d4;
-
-filter:blur(180px);
-
-border-radius:50%;
-
-bottom:-150px;
-right:-150px;
-
-opacity:.55;
-
-}
-
-.card{
-
-position:relative;
-
-z-index:5;
-
-width:430px;
-
-padding:45px;
-
-border-radius:28px;
-
-backdrop-filter:blur(20px);
-
-background:rgba(255,255,255,.08);
-
-border:1px solid rgba(255,255,255,.18);
-
-box-shadow:
-
-0 20px 80px rgba(0,0,0,.45),
-
-0 0 60px rgba(79,70,229,.3);
-
-}
-
-.card h1{
-
-font-size:40px;
-
-color:white;
-
-margin-bottom:10px;
-
-}
-
-.card p{
-
-color:#cbd5e1;
-
-margin-bottom:30px;
-
-}
-
-input{
-
-width:100%;
-
-padding:16px;
-
-margin-bottom:18px;
-
-border:none;
-
-outline:none;
-
-border-radius:14px;
-
-background:rgba(255,255,255,.12);
-
-color:white;
-
-font-size:15px;
-
-transition:.35s;
-
-}
-
-input::placeholder{
-
-color:#cbd5e1;
-
-}
-
-input:focus{
-
-transform:scale(1.03);
-
-background:rgba(255,255,255,.18);
-
-box-shadow:0 0 25px rgba(99,102,241,.45);
-
-}
-
-button{
-
-width:100%;
-
-padding:16px;
-
-border:none;
-
-border-radius:14px;
-
-cursor:pointer;
-
-font-size:17px;
-
-font-weight:600;
-
-background:linear-gradient(135deg,#6366f1,#06b6d4);
-
-color:white;
-
-transition:.35s;
-
-}
-
-button:hover{
-
-transform:translateY(-4px);
-
-box-shadow:
-
-0 15px 35px rgba(99,102,241,.5);
-
-}
-
-.glow{
-
-position:absolute;
-
-inset:-2px;
-
-border-radius:28px;
-
-background:linear-gradient(45deg,#6366f1,#06b6d4,#8b5cf6);
-
-filter:blur(30px);
-
-opacity:.25;
-
-z-index:-1;
-
-}
-
-</style>
-
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Trippy AI</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+
+            height: 100vh;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: linear-gradient(135deg, #0f172a, #020617);
+            overflow: hidden;
+
+        }
+
+        body::before {
+            content: "";
+            position: absolute;
+            width: 600px;
+            height: 600px;
+            background: #4f46e5;
+            filter: blur(180px);
+            border-radius: 50%;
+            top: -180px;
+            left: -180px;
+            opacity: .55;
+        }
+
+        body::after {
+            content: "";
+            position: absolute;
+            width: 500px;
+            height: 500px;
+            background: #06b6d4;
+            filter: blur(180px);
+            border-radius: 50%;
+            bottom: -150px;
+            right: -150px;
+            opacity: .55;
+        }
+
+        .card {
+            position: relative;
+            z-index: 5;
+            width: 430px;
+            padding: 45px;
+            border-radius: 28px;
+            backdrop-filter: blur(20px);
+            background: rgba(255, 255, 255, .08);
+            border: 1px solid rgba(255, 255, 255, .18);
+            box-shadow:
+                0 20px 80px rgba(0, 0, 0, .45),
+                0 0 60px rgba(79, 70, 229, .3);
+        }
+
+        .card h1 {
+            font-size: 40px;
+            color: white;
+            margin-bottom: 10px;
+        }
+
+        .card p {
+            color: #cbd5e1;
+            margin-bottom: 30px;
+        }
+
+        input {
+            width: 100%;
+            padding: 16px;
+            margin-bottom: 18px;
+            border: none;
+            outline: none;
+            border-radius: 14px;
+            background: rgba(255, 255, 255, .12);
+            color: white;
+            font-size: 15px;
+            transition: .35s;
+        }
+
+        input::placeholder {
+            color: #cbd5e1;
+        }
+
+        input:focus {
+            transform: scale(1.03);
+            background: rgba(255, 255, 255, .18);
+            box-shadow: 0 0 25px rgba(99, 102, 241, .45);
+        }
+
+        button {
+            width: 100%;
+            padding: 16px;
+            border: none;
+            border-radius: 14px;
+            cursor: pointer;
+            font-size: 17px;
+            font-weight: 600;
+            background: linear-gradient(135deg, #6366f1, #06b6d4);
+            color: white;
+            transition: .35s;
+        }
+
+        button:hover {
+            transform: translateY(-4px);
+            box-shadow:
+                0 15px 35px rgba(99, 102, 241, .5);
+        }
+
+        .glow {
+            position: absolute;
+            inset: -2px;
+            border-radius: 28px;
+            background: linear-gradient(45deg, #6366f1, #06b6d4, #8b5cf6);
+            filter: blur(30px);
+            opacity: .25;
+            z-index: -1;
+        }
+    </style>
 </head>
 
 <body>
+    <div class="card">
+        <div class="glow"></div>
+        <h1> Trippy</h1>
 
-<div class="card">
+        <p>Your AI Powered Travel Planner</p>
 
-<div class="glow"></div>
-
-<h1>✈ Trippy</h1>
-
-<p>Your AI Powered Travel Planner</p>
-
-<form method="POST">
-
-<input type="text" name="preferences" placeholder="Travel Preferences">
-
-<input type="text" name="place" placeholder="Destination">
-
-<input type="number" name="age" placeholder="Age">
-
-<input type="number" name="budget" placeholder="Budget">
-
-<input type="number" name="persons" placeholder="Number of Persons">
-
-<button>
-Generate Trip 🚀
-</button>
-
-</form>
-
-</div>
-
+        <form method="POST">
+            <input type="text" name="preferences" placeholder="Travel Preferences">
+            <input type="text" name="place" placeholder="Destination">
+            <input type="number" name="age" placeholder="Age">
+            <input type="number" name="budget" placeholder="Budget">
+            <input type="number" name="persons" placeholder="Number of Persons">
+            <button>
+                Generate Trip
+            </button>
+        </form>
+    </div>
 </body>
+
 </html>
