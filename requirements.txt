@@ -15,3 +15,4 @@ weasyprint
 markdown
 langchain_groq
 flask
+playwright
