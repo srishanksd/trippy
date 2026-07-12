@@ -45,6 +45,7 @@ def home():
             filename,
             as_attachment=True
         )
+    return render_template("index.html")
 
 
 if __name__ == "__main__":
