@@ -7,6 +7,7 @@ from agents.search_agent import SearchAgent
 from agents.content_extractor import ContentExtractorAgent
 from agents.pdf_maker import PDFMaker
 import random
+from flask import send_file
 
 maps = MapsAgent()
 weather = WeatherAgent()
@@ -34,9 +35,15 @@ def home():
         pdf.create_pdf(report_html, f".//pdfs//trip{random.randint(1,10000)}.pdf")
         
         
-    return render_template("index.html")
+    filename = f"./pdfs/trip{random.randint(1,10000)}.pdf"
+
+    pdf.create_pdf(report_html, filename)
+
+    return send_file(
+        filename,
+        as_attachment=True
+    )
 
 
 if __name__ == "__main__":
-    app.run(debug=True)
-    
+    app.run(host="0.0.0.0", port=5000)
