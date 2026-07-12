@@ -1,5 +1,5 @@
 from playwright.sync_api import sync_playwright
-
+import os
 
 class PDFMaker:
 
@@ -7,6 +7,7 @@ class PDFMaker:
         pass
 
     def create_pdf(self, html: str, output_pdf: str):
+        os.makedirs(os.path.dirname(output_pdf), exist_ok=True)
         with sync_playwright() as p:
             browser = p.chromium.launch()
             page = browser.new_page()

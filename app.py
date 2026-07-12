@@ -31,18 +31,20 @@ def home():
         place = request.form['place']
         a = Pipeline(maps, weather, content, llm,place, persons, budget,age,preferences)
         report_html = a.report_maker(llm)
-        pdf = PDFMaker()
-        pdf.create_pdf(report_html, f".//pdfs//trip{random.randint(1,10000)}.pdf")
+        import os
+        os.makedirs("pdfs", exist_ok=True)
+        pdf_maker = PDFMaker()
+        pdf_maker.create_pdf(report_html, f".//pdfs//trip{random.randint(1,10000)}.pdf")
         
         
-    filename = f"./pdfs/trip{random.randint(1,10000)}.pdf"
+        filename = f".//pdfs//trip{random.randint(1,10000)}.pdf"
 
-    pdf.create_pdf(report_html, filename)
+        pdf_maker.create_pdf(report_html, filename)
 
-    return send_file(
-        filename,
-        as_attachment=True
-    )
+        return send_file(
+            filename,
+            as_attachment=True
+        )
 
 
 if __name__ == "__main__":
