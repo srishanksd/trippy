@@ -16,3 +16,4 @@ markdown
 langchain_groq
 flask
 playwright
+gunicorn
