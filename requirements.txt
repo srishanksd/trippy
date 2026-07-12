@@ -14,3 +14,4 @@ langchain-google-genai
 weasyprint
 markdown
 langchain_groq
+flask
